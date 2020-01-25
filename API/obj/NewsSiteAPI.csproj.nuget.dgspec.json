@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\NewsSite\\API\\NewsSiteAPI.csproj": {}
+    "C:\\Users\\User\\Desktop\\NotAccenture\\API\\NewsSiteAPI.csproj": {}
   },
   "projects": {
-    "D:\\NewsSite\\API\\NewsSiteAPI.csproj": {
+    "C:\\Users\\User\\Desktop\\NotAccenture\\API\\NewsSiteAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\NewsSite\\API\\NewsSiteAPI.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\NotAccenture\\API\\NewsSiteAPI.csproj",
         "projectName": "NewsSiteAPI",
-        "projectPath": "D:\\NewsSite\\API\\NewsSiteAPI.csproj",
-        "packagesPath": "C:\\Users\\KD113\\.nuget\\packages\\",
-        "outputPath": "D:\\NewsSite\\API\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\NotAccenture\\API\\NewsSiteAPI.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\NotAccenture\\API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\KD113\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,10 +81,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

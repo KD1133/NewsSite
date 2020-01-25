@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NewsSiteAPI;
-using NewsSiteAPI.Contracts;
-using NewsSiteAPI.Implementations;
+using NewsSiteAPI.Repositories.Contracts;
+using NewsSiteAPI.Repositories.Implementations;
 using NewsSiteAPI.Models;
 
 namespace WebApplication1
@@ -24,7 +24,7 @@ namespace WebApplication1
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<NewsSiteContext>();
-            services.AddScoped<IRssFeedRepository<RssFeed>, RssFeedRepository>();
+            services.AddScoped<IRssFeedRepository, RssFeedRepository>();
 
         }
 

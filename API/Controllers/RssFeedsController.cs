@@ -1,25 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NewsSiteAPI.Contracts;
-using NewsSiteAPI.Implementations;
+using NewsSiteAPI.Repositories.Contracts;
+using NewsSiteAPI.Repositories.Implementations;
 using NewsSiteAPI.Models;
 using System.Collections.Generic;
 
 namespace NewsSiteAPI.Controllers
 {
-    [Route("api/RssFeed")]
+    [Route("NewsSiteApi")]
     [ApiController]
     public class RssFeedsController : ControllerBase
     {
-        private readonly IRssFeedRepository<RssFeed> _rssFeedRepository;
+        private readonly IRssFeedRepository _rssFeedRepository;
 
-        public RssFeedsController(RssFeedRepository rssFeedRepository)
+        public RssFeedsController(IRssFeedRepository rssFeedRepository)
         {
             _rssFeedRepository = rssFeedRepository;
         }
 
-        // GET: api/RssFeeds
+        // GET: NewsSiteApi/RssFeeds
         [HttpGet]
-        [Route("GetAllRssFeeds")]
+        [Route("RssFeeds")]
         public IActionResult GetRssFeed()
         {
             IEnumerable<RssFeed> rssFeeds = _rssFeedRepository.GetAllRssFeeds();

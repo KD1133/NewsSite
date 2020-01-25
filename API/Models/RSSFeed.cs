@@ -5,7 +5,7 @@ namespace NewsSiteAPI.Models
     public class RssFeed
     {
         [Key]
-        public int RssFeedId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
