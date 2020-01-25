@@ -77,6 +77,10 @@
             "Microsoft.SyndicationFeed.ReaderWriter": {
               "target": "Package",
               "version": "[1.0.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.4, )"
             }
           },
           "imports": [
