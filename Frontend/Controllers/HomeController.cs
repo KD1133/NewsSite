@@ -1,13 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Frontend.Models;
+using Frontend.Providers.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Frontend.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IRssFeedProvider _rssFeedProvider;
+
+        public HomeController(IRssFeedProvider rssFeedProvider)
+        {
+            this._rssFeedProvider = rssFeedProvider;
+        }
+
         // GET: Home
         public ActionResult Home()
         {
-            return View("Views/Home.cshtml",);
+            HomeViewModel model = _rssFeedProvider.GetAllRssFeeds();
+            return View("Views/Home.cshtml",model);
         }
     }
 }

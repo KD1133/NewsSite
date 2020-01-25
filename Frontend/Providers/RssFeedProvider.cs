@@ -1,5 +1,7 @@
 ﻿using Frontend.Models;
 using Frontend.Providers.Interfaces;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Net.Http;
 
 namespace Frontend.Providers
@@ -13,10 +15,14 @@ namespace Frontend.Providers
             _httpClient = new HttpClient();
         }
 
-        public RssFeedViewModel GetAllRssFeeds()
+        public HomeViewModel GetAllRssFeeds()
         {
             var response = _httpClient.GetAsync("https://localhost:44329/NewsSiteApi/RssFeeds");
-
+            IEnumerable<RssFeedBasicInfo> rssFeedBasicInfos = JsonConvert.DeserializeObject<IEnumerable<RssFeedBasicInfo>>(response.ToString());
+            return new HomeViewModel
+            {
+                RssFeedViewModel = new RssFeedViewModel()
+            };
         }
     }
 }

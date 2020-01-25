@@ -4,6 +4,6 @@ namespace Frontend.Providers.Interfaces
 {
     public interface IRssFeedProvider
     {
-        RssFeedViewModel GetAllRssFeeds();
-    }
+        HomeViewModel GetAllRssFeeds();
+    } 
 }
