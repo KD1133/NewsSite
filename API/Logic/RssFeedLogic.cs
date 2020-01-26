@@ -18,6 +18,11 @@ namespace NewsSiteAPI.Logic
             _rssFeedRepository = rssFeedRepository;
         }
 
+        /// <summary>
+        /// Displays a amount of items form rss feed
+        /// </summary>
+        /// <param name="rssFeedId">Rss Feeds Id</param>
+        /// <param name="recordCount">Amount of records to load</param>
         public async Task<IEnumerable<ISyndicationItem>> GetRssFeedData(int rssFeedId, int recordCount)
         {
             var items = new List<ISyndicationItem>();
@@ -28,7 +33,7 @@ namespace NewsSiteAPI.Logic
                 var feedReader = new RssFeedReader(xmlReader);
                 while (await feedReader.Read())
                 {
-                    if (feedReader.ElementType == Microsoft.SyndicationFeed.SyndicationElementType.Item)
+                    if (feedReader.ElementType == SyndicationElementType.Item)
                     {
                         ISyndicationItem item = await feedReader.ReadItem();
                         items.Add(item);

@@ -13,7 +13,9 @@ namespace Frontend.Controllers
             this._rssFeedProvider = rssFeedProvider;
         }
 
-        // GET: Home
+        /// <summary>
+        /// Displays home view
+        /// </summary>
         public ActionResult Home()
         {
             HomeViewModel model = _rssFeedProvider.GetAllRssFeeds();

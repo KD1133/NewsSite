@@ -1,11 +1,10 @@
-﻿using Frontend.NeededForSerialization;
-using Microsoft.SyndicationFeed;
+﻿using Frontend.Deseriliazation_objects;
 using System.Collections.Generic;
 
 namespace Frontend.Models
 {
     public class RssFeedViewModel
     {
-        public IEnumerable<RootObject> RssFeedItems { get; set; }
+        public IEnumerable<RssFeedItem> RssFeedItems { get; set; }
     }
 }

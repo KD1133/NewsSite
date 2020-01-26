@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Frontend.NeededForSerialization
+namespace Frontend.Deseriliazation_objects
 {
-    public class Link
-    {
-        public string Uri { get; set; }
-        public object Title { get; set; }
-        public object MediaType { get; set; }
-        public string RelationshipType { get; set; }
-        public int Length { get; set; }
-        public DateTime LastUpdated { get; set; }
-    }
-
-    public class RootObject
+    /// <summary>
+    /// Class uised to deserialize Rss Feed
+    /// </summary>
+    public class RssFeedItem
     {
         public string Id { get; set; }
         public string Title { get; set; }

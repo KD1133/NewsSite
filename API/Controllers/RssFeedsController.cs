@@ -21,7 +21,9 @@ namespace NewsSiteAPI.Controllers
             _RssFeedLogic = RssFeedLogic;
         }
 
-        // GET: NewsSiteApi/RssFeed/All
+        /// <summary>
+        /// Gets all Rss Feed basic data
+        /// </summary>
         [HttpGet]
         [Route("All")]
         public IActionResult GetAllRssFeed()
@@ -30,7 +32,11 @@ namespace NewsSiteAPI.Controllers
             return Ok(rssFeeds);
         }
 
-        // GET: NewsSiteApi/RssFeed/1/10
+        /// <summary>
+        /// returns a amount of items form rss feed
+        /// </summary>
+        /// <param name="rssFeedId">Rss Feeds Id</param>
+        /// <param name="recordCount">Amount of records to load</param>
         [HttpGet]
         [Route("{rssFeedId}/{recordCount}")]
         public IActionResult GetRssFeedData(int rssFeedId, int recordCount)

@@ -1,7 +1,6 @@
-﻿using Frontend.Models;
-using Frontend.NeededForSerialization;
+﻿using Frontend.Deseriliazation_objects;
+using Frontend.Models;
 using Frontend.Providers.Interfaces;
-using Microsoft.SyndicationFeed;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -11,15 +10,19 @@ namespace Frontend.Providers
     public class RssFeedProvider : IRssFeedProvider
     {
         private readonly HttpClient _httpClient;
+        private const string ConectionStringBase = "https://localhost:44329/NewsSiteApi/RssFeed";
 
         public RssFeedProvider()
         {
             _httpClient = new HttpClient();
         }
 
+        /// <summary>
+        /// Gets all Rss Feed basic data
+        /// </summary>
         public HomeViewModel GetAllRssFeeds()
         {
-            var response = _httpClient.GetAsync("https://localhost:44329/NewsSiteApi/RssFeed/All");
+            var response = _httpClient.GetAsync($"{ConectionStringBase}/All");
             return new HomeViewModel
             {
                 RssFeedsViewModel = new RssFeedsViewModel
@@ -29,12 +32,17 @@ namespace Frontend.Providers
             };
         }
 
+        /// <summary>
+        /// Displays a amount of items form rss feed
+        /// </summary>
+        /// <param name="rssFeedId">Rss Feeds Id</param>
+        /// <param name="recordCount">Amount of records to load</param>
         public RssFeedViewModel GetRssFeedById(int rssFeedId, int recordCount)
         {
-            var response = _httpClient.GetAsync("https://localhost:44329/NewsSiteApi/RssFeed/1/10");
+            var response = _httpClient.GetAsync($"{ ConectionStringBase}/{rssFeedId}/{recordCount}");
             return new RssFeedViewModel
             {
-                RssFeedItems = JsonConvert.DeserializeObject<IEnumerable<RootObject>>(response.Result.Content.ReadAsStringAsync().Result)
+                RssFeedItems = JsonConvert.DeserializeObject<IEnumerable<RssFeedItem>>(response.Result.Content.ReadAsStringAsync().Result)
             };
         }
     }

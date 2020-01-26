@@ -1,10 +1,11 @@
 ﻿@model Frontend.Models.RssFeedsViewModel
 
-<ul>
-    @foreach(var RssFeed in Model.RssFeeds)
-    {
+    <ul>
+        @foreach(var RssFeed in Model.RssFeeds)
+        {
         <li>
-            <a href="https://localhost:44329/NewsSiteApi/RssFeed/">@RssFeed.Title</a>
+            @* TODO make {10} from form *@
+            @Html.ActionLink(@RssFeed.Title, null, $"RssFeed/{RssFeed.Id}/{10}", null)
         </li>
-    }
-</ul>
+        }
+    </ul>
