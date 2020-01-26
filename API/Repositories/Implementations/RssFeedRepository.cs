@@ -18,5 +18,10 @@ namespace NewsSiteAPI.Repositories.Implementations
         {
             return _newsSiteContext.RssFeed.ToList();
         }
+
+        public string GetRssFeedUriById(int rssFeedId)
+        {
+           return _newsSiteContext.RssFeed.Where(r => r.Id == rssFeedId).Select(r => r.Uri).FirstOrDefault();
+        }
     }
 }

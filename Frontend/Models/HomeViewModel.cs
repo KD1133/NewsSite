@@ -2,6 +2,6 @@
 {
     public class HomeViewModel
     {
-        public RssFeedViewModel RssFeedViewModel { get; set; }
+        public RssFeedsViewModel RssFeedsViewModel { get; set; }
     }
 }

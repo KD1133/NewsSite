@@ -1,0 +1,10 @@
+﻿@model Frontend.Models.RssFeedsViewModel
+
+<ul>
+    @foreach(var RssFeed in Model.RssFeeds)
+    {
+        <li>
+            <a href="https://localhost:44329/NewsSiteApi/RssFeed/">@RssFeed.Title</a>
+        </li>
+    }
+</ul>

@@ -1,5 +1,7 @@
 ﻿using Frontend.Models;
+using Frontend.NeededForSerialization;
 using Frontend.Providers.Interfaces;
+using Microsoft.SyndicationFeed;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -17,11 +19,22 @@ namespace Frontend.Providers
 
         public HomeViewModel GetAllRssFeeds()
         {
-            var response = _httpClient.GetAsync("https://localhost:44329/NewsSiteApi/RssFeeds");
-            IEnumerable<RssFeedBasicInfo> rssFeedBasicInfos = JsonConvert.DeserializeObject<IEnumerable<RssFeedBasicInfo>>(response.ToString());
+            var response = _httpClient.GetAsync("https://localhost:44329/NewsSiteApi/RssFeed/All");
             return new HomeViewModel
             {
-                RssFeedViewModel = new RssFeedViewModel()
+                RssFeedsViewModel = new RssFeedsViewModel
+                {
+                    RssFeeds = JsonConvert.DeserializeObject<IEnumerable<RssFeedBasicInfo>>(response.Result.Content.ReadAsStringAsync().Result)
+                }
+            };
+        }
+
+        public RssFeedViewModel GetRssFeedById(int rssFeedId, int recordCount)
+        {
+            var response = _httpClient.GetAsync("https://localhost:44329/NewsSiteApi/RssFeed/1/10");
+            return new RssFeedViewModel
+            {
+                RssFeedItems = JsonConvert.DeserializeObject<IEnumerable<RootObject>>(response.Result.Content.ReadAsStringAsync().Result)
             };
         }
     }

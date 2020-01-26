@@ -2,7 +2,7 @@
 
 namespace NewsSiteAPI.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class createRssFeedTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,6 @@ namespace NewsSiteAPI.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
                     Uri = table.Column<string>(nullable: false)
                 },
                 constraints: table =>

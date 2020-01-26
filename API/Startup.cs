@@ -4,9 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NewsSiteAPI;
+using NewsSiteAPI.Logic;
+using NewsSiteAPI.Logic.Interfaces;
 using NewsSiteAPI.Repositories.Contracts;
 using NewsSiteAPI.Repositories.Implementations;
-using NewsSiteAPI.Models;
 
 namespace WebApplication1
 {
@@ -25,7 +26,7 @@ namespace WebApplication1
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<NewsSiteContext>();
             services.AddScoped<IRssFeedRepository, RssFeedRepository>();
-
+            services.AddScoped<IRssFeedLogic, RssFeedLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,22 +8,19 @@ using NewsSiteAPI;
 namespace NewsSiteAPI.Migrations
 {
     [DbContext(typeof(NewsSiteContext))]
-    [Migration("20200125193223_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200125233215_createRssFeedTable")]
+    partial class createRssFeedTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
             modelBuilder.Entity("NewsSiteAPI.Models.RssFeed", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Description")
-                        .IsRequired();
 
                     b.Property<string>("Title")
                         .IsRequired();
